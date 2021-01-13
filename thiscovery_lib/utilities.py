@@ -824,6 +824,8 @@ def aws_request(method, endpoint_url, base_url, params=None, data=None, aws_api_
             headers=headers,
             data=data,
         )
+        logger = get_logger()
+        logger.debug('Response headers', extra=response.headers)
         return {
             'statusCode': response.status_code,
             'body': response.text
